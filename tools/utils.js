@@ -4,6 +4,24 @@ exports.invoke = async (path, ctx, next) => {//统一获取无论get还是post�
     ctx.data = { ...ctx.query, ...ctx.request.body };
     console.log('<===========req===========>')
     console.log(ctx.data);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     ctx.body = await require(`${path}${object}`)[method](ctx, next);
     console.log('<===========res===========>')
     console.log(ctx.body)
