@@ -1,4 +1,4 @@
-export default invoke = async (path, ctx, next) => {//统一获取无论get还是post请求的参数放到ctx.data上，并确定走对应的方法
+module.exports = async (path, ctx, next) => {//统一获取无论get还是post请求的参数放到ctx.data上，并确定走对应的方法
     const { object, method } = ctx.params;
     console.log(`///invoke:${object}->${method}===${ctx.request.method}`);
     ctx.data = { ...ctx.query, ...ctx.request.body };
@@ -6,23 +6,8 @@ export default invoke = async (path, ctx, next) => {//统一获取无论get还�
     console.log(ctx.data);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ctx.body = await require(`${path}${object}`)[method](ctx, next);
+    
+    ctx.body = await require(`${path}${object}`)[method](ctx, next);//返回结果
     console.log('<===========res===========>')
     console.log(ctx.body)
-}
+};
