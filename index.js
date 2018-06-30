@@ -55,7 +55,7 @@ app.use(cookieSession({
     renew: false,  //(boolean) renew session when session is nearly expired,
 }, app))
 //静态资源
-app.use(static(__dirname + 'static'));
+app.use(static(__dirname + '/static'));
 //装载所有子路由
 app.use(apiRouter.routes()).use(apiRouter.allowedMethods())
 //数据库初始化
